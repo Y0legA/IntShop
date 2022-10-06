@@ -6,7 +6,7 @@
 //
 
 import UIKit
-// Экран
+// Экран feature
 class ViewController: UIViewController {
     // MARK: - Private IBoutlet
     // MARK: - Private Visual Components
