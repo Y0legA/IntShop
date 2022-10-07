@@ -13,7 +13,7 @@ final class SelectedProductViewController: UIViewController {
     // MARK: - Visual Components
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = nameProduct
+        label.text = productName
         label.textColor = .label
         label.font = UIFont(name: "Avenir Next Demi Bold", size: 15)
         label.textAlignment = .center
@@ -26,13 +26,13 @@ final class SelectedProductViewController: UIViewController {
                                                   width: view.frame.width - 100, height: view.frame.height / 3))
         imageView.center.x = view.center.x
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: nameImageProduct)
+        imageView.image = UIImage(named: productImageName)
         return imageView
     }()
     
     // MARK: - Public Properties
-    var nameProduct = ""
-    var nameImageProduct = ""
+    var productName = ""
+    var productImageName = ""
     
     // MARK: - LifeCycle
     override func viewDidLoad() {

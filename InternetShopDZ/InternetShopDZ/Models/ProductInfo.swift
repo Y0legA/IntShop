@@ -9,6 +9,6 @@ import Foundation
 
 // Описание продукта
 struct ProductInfo {
-    let nameProduct: String
-    let nameImageProduct: String
+    let productName: String
+    let productImageName: String
 }

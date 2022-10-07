@@ -89,22 +89,10 @@ final class SearchViewController: UIViewController {
     // MARK: - Private Actions
     @objc private func handleTap(_ sender: UITapGestureRecognizer) {
         let productViewController = SelectedProductViewController()
-        switch sender.view?.tag {
-        case 0:
-            productViewController.nameProduct = Constants.goods[0].0
-            productViewController.nameImageProduct = Constants.goods[0].1
-            navigationController?.pushViewController(productViewController, animated: true)
-        case 1:
-            productViewController.nameProduct = Constants.goods[1].0
-            productViewController.nameImageProduct = Constants.goods[1].1
-            navigationController?.pushViewController(productViewController, animated: true)
-        case 2:
-            productViewController.nameProduct = Constants.goods[2].0
-            productViewController.nameImageProduct = Constants.goods[2].1
-            navigationController?.pushViewController(productViewController, animated: true)
-        default:
-            break
-        }
+        guard let index = sender.view?.tag else { return }
+        productViewController.productName = Constants.goods[index].0
+        productViewController.productImageName = Constants.goods[index].1
+        navigationController?.pushViewController(productViewController, animated: true)
     }
     
     @objc private func clearSearchTextFieldAction() {
