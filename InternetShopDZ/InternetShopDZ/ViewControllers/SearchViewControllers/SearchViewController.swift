@@ -99,6 +99,7 @@ final class SearchViewController: UIViewController {
         let barButtonItem = UIBarButtonItem()
         barButtonItem.title = Constants.search
         navigationItem.backBarButtonItem = barButtonItem
+    
         selectVC.productName = Constants.products[recognizer.view?.tag ?? 0].0
         navigationController?.pushViewController(selectVC, animated: true)
     }
@@ -161,5 +162,8 @@ final class SearchViewController: UIViewController {
             view.addSubview(label)
             yCoordinate += 42
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.backgroundColor = .black
     }
 }

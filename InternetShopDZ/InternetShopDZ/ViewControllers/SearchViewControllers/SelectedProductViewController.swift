@@ -246,6 +246,7 @@ final class SelectedProductViewController: UIViewController {
     }
     
     private func configureNavBar() {
+        navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.08490801603, green: 0.06972028315, blue: 0.08750406653, alpha: 1)
         let rightFavoriteButton = UIBarButtonItem(customView:
                                                     UIImageView(image: UIImage(systemName: Constants.iconsNavBar.0)))
         let rightHeartButton = UIBarButtonItem(customView:

@@ -60,6 +60,6 @@ final class TabBarViewController: UITabBarController {
     // MARK: - Private Methods
     private func setControllers() {
         viewControllers = [buyViewController, forYouViewController, searchNavigationController, busketViewController]
-        tabBar.barTintColor = .black
+        tabBar.backgroundColor = #colorLiteral(red: 0.08490801603, green: 0.06972028315, blue: 0.08750406653, alpha: 1)
     }
 }
