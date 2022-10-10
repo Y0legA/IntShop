@@ -29,9 +29,9 @@ final class Product: UIView {
     // MARK: - Initializers
     init(parameter: ProductInfo) {
         super.init(frame: .zero)
-        self.productImageView.image = UIImage(named: parameter.productImageName)
-        self.nameProductLabel.text = parameter.productName
-        self.configureUI()
+        productImageView.image = UIImage(named: parameter.productImageName)
+        nameProductLabel.text = parameter.productName
+        configureUI()
     }
     
     required init?(coder: NSCoder) {
@@ -40,11 +40,11 @@ final class Product: UIView {
     
     // MARK: - Public Methods
     override func layoutSubviews() {
-           super.layoutSubviews()
+        super.layoutSubviews()
         backgroundColor =  #colorLiteral(red: 0.1107899025, green: 0.1054661646, blue: 0.1186901554, alpha: 1)
-           layer.cornerRadius = 10
-           frame.size = CGSize(width: 120, height: 150)
-       }
+        layer.cornerRadius = 10
+        frame.size = CGSize(width: 120, height: 150)
+    }
     
     // MARK: - Private Methods
     private func configureUI() {

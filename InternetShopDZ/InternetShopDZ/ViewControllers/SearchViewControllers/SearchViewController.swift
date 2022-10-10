@@ -71,6 +71,7 @@ final class SearchViewController: UIViewController {
     private lazy var goodsScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.frame = CGRect(x: 0, y: clearButton.frame.maxY + 15, width: view.bounds.width, height: 150)
+        scrollView.showsHorizontalScrollIndicator = false
         return scrollView
     }()
     
@@ -92,7 +93,8 @@ final class SearchViewController: UIViewController {
     // MARK: - Public Methods
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.backgroundColor = .black
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.backgroundColor = .systemBackground
     }
     
     // MARK: - Private Actions
@@ -100,12 +102,11 @@ final class SearchViewController: UIViewController {
         productsSearchBar.text = String()
     }
     
-    @objc private func handleTap(_ recognizer: UIGestureRecognizer) {
+    @objc private func handleTapAction(_ recognizer: UIGestureRecognizer) {
         let selectVC = SelectedProductViewController()
         let barButtonItem = UIBarButtonItem()
         barButtonItem.title = Constants.search
         navigationItem.backBarButtonItem = barButtonItem
-    
         selectVC.productName = Constants.products[recognizer.view?.tag ?? 0].0
         navigationController?.pushViewController(selectVC, animated: true)
     }
@@ -137,7 +138,7 @@ final class SearchViewController: UIViewController {
             item.frame = CGRect(x: xCoord, y: 0, width: 140, height: 150)
             item.tag = index
             let recognizer = UITapGestureRecognizer()
-            recognizer.addTarget(self, action: #selector(handleTap))
+            recognizer.addTarget(self, action: #selector(handleTapAction))
             item.addGestureRecognizer(recognizer)
             goodsScrollView.addSubview(item)
             xCoord += 135
@@ -148,7 +149,7 @@ final class SearchViewController: UIViewController {
     private func makeRequestsLabel() {
         var yCoordinate: CGFloat = requestsLabel.frame.maxY + 8
         for textRequest in Constants.textRequests {
-            let imageView = UIImageView(image: UIImage(systemName: Constants.search))
+            let imageView = UIImageView(image: UIImage(systemName: Constants.searchIcon))
             imageView.tintColor = .gray
             imageView.frame = CGRect(x: 0, y: yCoordinate, width: 13, height: 13)
             let label = UILabel(frame: CGRect(x: imageView.frame.maxX + 10,

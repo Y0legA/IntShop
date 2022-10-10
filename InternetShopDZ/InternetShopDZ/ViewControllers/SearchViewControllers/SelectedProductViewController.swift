@@ -282,5 +282,4 @@ final class SelectedProductViewController: UIViewController {
         view.alpha = 0.5
         goodsScrollView.addSubview(view)
     }
-    
 }
