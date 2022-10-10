@@ -9,46 +9,57 @@ import UIKit
 
 // Экран таббара
 final class TabBarViewController: UITabBarController {
+    private enum Constants {
+        static let buy = "Купить"
+        static let forYou = "Для вас"
+        static let search = "Поиск"
+        static let basket = "Корзина"
+        static let laptopIcon = "laptop_icon"
+        static let searchIcon = "magnifyingglass"
+        static let bagIcon = "bag"
+        static let personIcon = "person.circle"
+    }
+    
     // MARK: - Private Visual Components
     private lazy var buyViewController: BuyViewController = {
         let viewController = BuyViewController()
-        viewController.tabBarItem = UITabBarItem(title: "Купить",
-                                                 image: UIImage(named: "laptop_icon"), tag: 0)
+        viewController.tabBarItem = UITabBarItem(title: Constants.buy,
+                                                 image: UIImage(named: Constants.laptopIcon), tag: 0)
         return viewController
     }()
     
     private lazy var searchViewController: SearchViewController = {
         let viewController = SearchViewController()
-        viewController.tabBarItem = UITabBarItem(title: "Поиск",
-                                                 image: UIImage(systemName: "magnifyingglass"), tag: 1)
+        viewController.tabBarItem = UITabBarItem(title: Constants.search,
+                                                 image: UIImage(systemName: Constants.searchIcon), tag: 1)
         return viewController
     }()
     
     private lazy var forYouViewController: ForYouViewController = {
         let viewController = ForYouViewController()
-        viewController.tabBarItem = UITabBarItem(title: "Для вас",
-                                                 image: UIImage(systemName: "person.circle"), tag: 2)
+        viewController.tabBarItem = UITabBarItem(title: Constants.forYou,
+                                                 image: UIImage(systemName: Constants.personIcon), tag: 2)
         return viewController
     }()
     
     private lazy var busketViewController: BasketViewController = {
         let viewController = BasketViewController()
-        viewController.tabBarItem = UITabBarItem(title: "Корзина",
-                                                 image: UIImage(systemName: "bag"), tag: 3)
+        viewController.tabBarItem = UITabBarItem(title: Constants.basket,
+                                                 image: UIImage(systemName: Constants.bagIcon), tag: 3)
         return viewController
     }()
     
     private lazy var searchNavigationController = UINavigationController(rootViewController: searchViewController)
-
+    
     // MARK: - LifeCycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tabBar.backgroundColor =  #colorLiteral(red: 0.08490801603, green: 0.06972028315, blue: 0.08750406653, alpha: 1)
         setControllers()
     }
-
+    
     // MARK: - Private Methods
     private func setControllers() {
         viewControllers = [buyViewController, forYouViewController, searchNavigationController, busketViewController]
-        tabBar.barTintColor = .black
     }
 }
