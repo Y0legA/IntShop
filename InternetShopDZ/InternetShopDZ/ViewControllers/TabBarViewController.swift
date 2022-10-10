@@ -54,12 +54,12 @@ final class TabBarViewController: UITabBarController {
     // MARK: - LifeCycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tabBar.backgroundColor =  #colorLiteral(red: 0.08490801603, green: 0.06972028315, blue: 0.08750406653, alpha: 1)
         setControllers()
     }
     
     // MARK: - Private Methods
     private func setControllers() {
         viewControllers = [buyViewController, forYouViewController, searchNavigationController, busketViewController]
-        tabBar.backgroundColor = #colorLiteral(red: 0.08490801603, green: 0.06972028315, blue: 0.08750406653, alpha: 1)
     }
 }

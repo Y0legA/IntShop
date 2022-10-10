@@ -89,6 +89,12 @@ final class SearchViewController: UIViewController {
         configureUI()
     }
     
+    // MARK: - Public Methods
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.backgroundColor = .black
+    }
+    
     // MARK: - Private Actions
     @objc private func clearSearchTextFieldAction() {
         productsSearchBar.text = String()
@@ -162,8 +168,5 @@ final class SearchViewController: UIViewController {
             view.addSubview(label)
             yCoordinate += 42
         }
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.backgroundColor = .black
     }
 }
