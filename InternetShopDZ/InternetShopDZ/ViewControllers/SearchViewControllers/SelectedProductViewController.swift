@@ -15,11 +15,14 @@ final class SelectedProductViewController: UIViewController {
         static let cost = "3 990.00 руб"
         static let products = ["Чехол Incase Flat для MacBook Pro 16 дюймов":
                                 ["case1", "case2", "case3"],
-                               "Спортивный ремешок Black Unity для карманного":
+                               "Спортивный ремешок Black Unity для корпуса 44мм) размер R":
                                 ["clock1", "clock2"],
                                "Кожаный чехол Incase Flat для MacBook Pro 16 дюймов, золото":
-                                ["caseBrown1", "caseBrown2", "caseBrown3"]
+                                ["caseBrown1", "caseBrown2", "caseBrown3"],
+                               "Apple iPhone 14 ProMax in graphite":
+                                ["Apple iPhone 14 ProMax2", "Apple iPhone 14 ProMax1"]
         ]
+        static let darkGray = UIColor(named: "darkGray")
         static let fontAvenir = "Avenir Next"
         static let fontAvenirDB = "Avenir Next Demi Bold"
         static let fontArial = "Arial"
@@ -29,6 +32,9 @@ final class SelectedProductViewController: UIViewController {
         static let compatible = "Cовместимо с "
         static let compatibleText = "MacBook Pro — Евгений"
         static let chooseColor = "Выбран "
+        static let enterCountProduct = "Введите количество товара"
+        static let docIcon = "doc"
+        static let urlDoc = ("Apple_US_Education_Institution_Price_List-03-11-2022", "pdf")
         static let addBasket = "Добавить в корзину"
         static let cube = "cube.box"
         static let deliveryToday = "Заказ сегодня в течение дня, доставка:"
@@ -43,6 +49,7 @@ final class SelectedProductViewController: UIViewController {
         label.text = productName
         label.textColor = .label
         label.font = UIFont(name: Constants.fontAvenirDB, size: 15)
+        label.numberOfLines = 2
         label.textAlignment = .center
         label.frame = CGRect(x: 0, y: view.frame.minY + 60, width: view.frame.width, height: 50)
         return label
@@ -55,7 +62,7 @@ final class SelectedProductViewController: UIViewController {
         label.font = UIFont(name: Constants.fontArial, size: 14)
         label.textColor = #colorLiteral(red: 0.4929454327, green: 0.4775297642, blue: 0.4997213483, alpha: 1)
         label.textAlignment = .center
-        label.frame = CGRect(x: 0, y: nameLabel.frame.minY + 25, width: view.frame.width, height: 50)
+        label.frame = CGRect(x: 0, y: nameLabel.frame.maxY - 10, width: view.frame.width, height: 50)
         return label
     }()
     
@@ -92,7 +99,7 @@ final class SelectedProductViewController: UIViewController {
     private lazy var compatibleImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(systemName: Constants.checkmark))
         imageView.frame = CGRect(x: 60,
-                                 y: view.frame.maxY - 200,
+                                 y: colorContentView.frame.maxY + 30,
                                  width: 15,
                                  height: 15)
         imageView.tintColor = .green
@@ -121,10 +128,45 @@ final class SelectedProductViewController: UIViewController {
         return label
     }()
     
+    private lazy var countProductsLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x: 30,
+                                          y: compatibleTextLabel.frame.maxY + 10,
+                                          width: 180,
+                                          height: 30))
+        label.text = Constants.enterCountProduct
+        label.font = UIFont(name: Constants.fontAvenir, size: 12)
+        return label
+    }()
+    
+    private lazy var countTextField: UITextField = {
+        var textField = UITextField()
+        textField.frame = CGRect(x: countProductsLabel.frame.maxX, y: 0, width: 40, height: 20)
+        textField.center.y = countProductsLabel.center.y
+        textField.backgroundColor = .systemGray
+        textField.textColor = .systemBackground
+        textField.layer.cornerRadius = 5
+        textField.keyboardType = .numbersAndPunctuation
+        return textField
+    }()
+    
+    private lazy var showDetailsButton: UIButton = {
+        var button = UIButton()
+        button.frame = CGRect(x: countTextField.frame.maxX + 20,
+                              y: 0,
+                              width: 20,
+                              height: 20)
+        button.center.y = countTextField.center.y
+        button.setImage(UIImage(systemName: Constants.docIcon), for: .normal)
+        button.addTarget(self, action: #selector(chooseCountButtonAction), for: .touchUpInside)
+        button.tintColor = .label
+        button.backgroundColor = .systemBackground
+        return button
+    }()
+    
     private lazy var addBasketButton: UIButton = {
         var button = UIButton()
         button.frame = CGRect(x: 0,
-                              y: compatibleLabel.frame.maxY + 30,
+                              y: countProductsLabel.frame.maxY + 5,
                               width: view.frame.width,
                               height: 30)
         button.center.x = view.center.x
@@ -138,7 +180,7 @@ final class SelectedProductViewController: UIViewController {
     private lazy var cubeImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(systemName: Constants.cube))
         imageView.frame = CGRect(x: 5,
-                                 y: addBasketButton.frame.maxY + 27,
+                                 y: addBasketButton.frame.maxY + 10,
                                  width: 15,
                                  height: 15)
         imageView.tintColor = .gray
@@ -194,6 +236,22 @@ final class SelectedProductViewController: UIViewController {
         colorContentView.subviews[sender.tag * 2].isHidden.toggle()
     }
     
+    @objc private func handleTapAction(_ recognizer: UIGestureRecognizer) {
+        let selectProductVC = WebProductViewController()
+        guard let identifier = recognizer.view?.accessibilityIdentifier else { return }
+        selectProductVC.productName = identifier
+        selectProductVC.modalPresentationStyle = .popover
+        present(selectProductVC, animated: true)
+    }
+    
+    @objc private func chooseCountButtonAction(_ sender: UIButton) {
+        let detailVC = DetailsViewController()
+        detailVC.productName = Constants.urlDoc.0
+        detailVC.extention = Constants.urlDoc.1
+        detailVC.modalPresentationStyle = .popover
+        present(detailVC, animated: true)
+    }
+    
     // MARK: - Private Methods
     private func configureUI() {
         configureNavBar()
@@ -238,6 +296,9 @@ final class SelectedProductViewController: UIViewController {
         view.addSubview(compatibleImageView)
         view.addSubview(compatibleLabel)
         view.addSubview(compatibleTextLabel)
+        view.addSubview(countProductsLabel)
+        view.addSubview(countTextField)
+        view.addSubview(showDetailsButton)
         view.addSubview(addBasketButton)
         view.addSubview(cubeImageView)
         view.addSubview(orderTodayLabel)
@@ -246,7 +307,7 @@ final class SelectedProductViewController: UIViewController {
     }
     
     private func configureNavBar() {
-        navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.08490801603, green: 0.06972028315, blue: 0.08750406653, alpha: 1)
+        navigationController?.navigationBar.backgroundColor = Constants.darkGray
         let rightFavoriteButton = UIBarButtonItem(customView:
                                                     UIImageView(image: UIImage(systemName: Constants.iconsNavBar.0)))
         let rightHeartButton = UIBarButtonItem(customView:
@@ -263,11 +324,15 @@ final class SelectedProductViewController: UIViewController {
                                                       width: view.frame.width - 160,
                                                       height: view.frame.height / 4))
             imageView.center.x = view.center.x + imageViewCoordinate.x
-            
             let image = UIImage(named: productName)
-            
+            imageView.accessibilityIdentifier = self.productName
             imageView.image = image
             imageView.contentMode = .scaleAspectFit
+            let recognizer = UITapGestureRecognizer()
+            recognizer.addTarget(self, action: #selector(handleTapAction))
+            imageView.isUserInteractionEnabled = true
+            imageView.tag = 1
+            imageView.addGestureRecognizer(recognizer)
             goodsScrollView.addSubview(imageView)
             imageViewCoordinate.x += view.frame.width
         }
