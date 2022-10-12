@@ -10,10 +10,13 @@
 		8403DBBE28EEBF2000560B85 /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403DBBD28EEBF2000560B85 /* BuyViewController.swift */; };
 		8403DBC028EEBF5D00560B85 /* ForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403DBBF28EEBF5D00560B85 /* ForYouViewController.swift */; };
 		8403DBC228EEBFB500560B85 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403DBC128EEBFB500560B85 /* BasketViewController.swift */; };
+		8421C73528F4967500959E8A /* WebProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421C73428F4967500959E8A /* WebProductViewController.swift */; };
 		84237CE428F3251D008FD52C /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84237CE328F3251D008FD52C /* Product.swift */; };
 		844F731428EF5DB70013261F /* SelectedProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F731328EF5DB70013261F /* SelectedProductViewController.swift */; };
 		844F731728EF678C0013261F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F731628EF678C0013261F /* TabBarViewController.swift */; };
 		84AD6B6428EEFF6400828DD1 /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD6B6328EEFF6400828DD1 /* ProductInfo.swift */; };
+		84AF895128F4A7C800DA5D64 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AF895028F4A7C700DA5D64 /* DetailsViewController.swift */; };
+		84AF895328F4AA5200DA5D64 /* Apple_US_Education_Institution_Price_List-03-11-2022.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 84AF895228F4AA5200DA5D64 /* Apple_US_Education_Institution_Price_List-03-11-2022.pdf */; };
 		84E196BA28EDF21100EC158F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E196B928EDF21100EC158F /* AppDelegate.swift */; };
 		84E196BC28EDF21100EC158F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E196BB28EDF21100EC158F /* SceneDelegate.swift */; };
 		84E196BE28EDF21100EC158F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E196BD28EDF21100EC158F /* SearchViewController.swift */; };
@@ -26,10 +29,13 @@
 		8403DBBD28EEBF2000560B85 /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		8403DBBF28EEBF5D00560B85 /* ForYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouViewController.swift; sourceTree = "<group>"; };
 		8403DBC128EEBFB500560B85 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		8421C73428F4967500959E8A /* WebProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebProductViewController.swift; sourceTree = "<group>"; };
 		84237CE328F3251D008FD52C /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		844F731328EF5DB70013261F /* SelectedProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedProductViewController.swift; sourceTree = "<group>"; };
 		844F731628EF678C0013261F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		84AD6B6328EEFF6400828DD1 /* ProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
+		84AF895028F4A7C700DA5D64 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		84AF895228F4AA5200DA5D64 /* Apple_US_Education_Institution_Price_List-03-11-2022.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Apple_US_Education_Institution_Price_List-03-11-2022.pdf"; sourceTree = "<group>"; };
 		84E196B628EDF21100EC158F /* InternetShopDZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InternetShopDZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E196B928EDF21100EC158F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84E196BB28EDF21100EC158F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,8 +72,11 @@
 		844F731528EF5DC70013261F /* SearchViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				84AF895528F4AB0700DA5D64 /* View */,
 				84E196BD28EDF21100EC158F /* SearchViewController.swift */,
 				844F731328EF5DB70013261F /* SelectedProductViewController.swift */,
+				84AF895028F4A7C700DA5D64 /* DetailsViewController.swift */,
+				8421C73428F4967500959E8A /* WebProductViewController.swift */,
 			);
 			path = SearchViewControllers;
 			sourceTree = "<group>";
@@ -78,6 +87,14 @@
 				84AD6B6328EEFF6400828DD1 /* ProductInfo.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		84AF895528F4AB0700DA5D64 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84237CE328F3251D008FD52C /* Product.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		84E196AD28EDF21100EC158F = {
@@ -103,7 +120,7 @@
 				84E196BB28EDF21100EC158F /* SceneDelegate.swift */,
 				8403DBBC28EEBEE900560B85 /* ViewControllers */,
 				84AD6B6228EEFF1900828DD1 /* Models */,
-				84237CE328F3251D008FD52C /* Product.swift */,
+				84AF895228F4AA5200DA5D64 /* Apple_US_Education_Institution_Price_List-03-11-2022.pdf */,
 				84E196BF28EDF21100EC158F /* Main.storyboard */,
 				84E196C228EDF21B00EC158F /* Assets.xcassets */,
 				84E196C428EDF21B00EC158F /* LaunchScreen.storyboard */,
@@ -171,6 +188,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84AF895328F4AA5200DA5D64 /* Apple_US_Education_Institution_Price_List-03-11-2022.pdf in Resources */,
 				84E196C628EDF21B00EC158F /* LaunchScreen.storyboard in Resources */,
 				84E196C328EDF21B00EC158F /* Assets.xcassets in Resources */,
 				84E196C128EDF21100EC158F /* Main.storyboard in Resources */,
@@ -208,6 +226,7 @@
 				8403DBC228EEBFB500560B85 /* BasketViewController.swift in Sources */,
 				84AD6B6428EEFF6400828DD1 /* ProductInfo.swift in Sources */,
 				84E196BE28EDF21100EC158F /* SearchViewController.swift in Sources */,
+				8421C73528F4967500959E8A /* WebProductViewController.swift in Sources */,
 				8403DBBE28EEBF2000560B85 /* BuyViewController.swift in Sources */,
 				844F731428EF5DB70013261F /* SelectedProductViewController.swift in Sources */,
 				84E196BA28EDF21100EC158F /* AppDelegate.swift in Sources */,
@@ -215,6 +234,7 @@
 				84237CE428F3251D008FD52C /* Product.swift in Sources */,
 				84E196BC28EDF21100EC158F /* SceneDelegate.swift in Sources */,
 				844F731728EF678C0013261F /* TabBarViewController.swift in Sources */,
+				84AF895128F4A7C800DA5D64 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

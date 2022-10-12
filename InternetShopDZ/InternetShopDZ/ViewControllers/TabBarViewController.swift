@@ -50,16 +50,24 @@ final class TabBarViewController: UITabBarController {
     }()
     
     private lazy var searchNavigationController = UINavigationController(rootViewController: searchViewController)
+    private lazy var forYouNavigationController = UINavigationController(rootViewController: forYouViewController)
     
     // MARK: - LifeCycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tabBar.backgroundColor =  #colorLiteral(red: 0.08490801603, green: 0.06972028315, blue: 0.08750406653, alpha: 1)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setStyleTabBar()
         setControllers()
     }
-    
+
     // MARK: - Private Methods
     private func setControllers() {
-        viewControllers = [buyViewController, forYouViewController, searchNavigationController, busketViewController]
+        viewControllers = [forYouNavigationController, buyViewController,
+                           searchNavigationController, busketViewController]
     }
+    
+    private func setStyleTabBar() {
+        //tabBar.backgroundColor = .systemBackground
+        tabBar.unselectedItemTintColor = .systemGray2
+    }
+    
 }

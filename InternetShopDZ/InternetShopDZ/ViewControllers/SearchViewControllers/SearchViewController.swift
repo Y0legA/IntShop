@@ -12,8 +12,9 @@ final class SearchViewController: UIViewController {
     private enum Constants {
         static let search = "Поиск"
         static let products = [("Чехол Incase Flat для MacBook Pro 16 дюймов", "case1"),
-                               ("Спортивный ремешок Black Unity для карманного", "clock1"),
-                               ("Кожаный чехол Incase Flat для MacBook Pro 16 дюймов, золото", "caseBrown1")
+                               ("Спортивный ремешок Black Unity для корпуса 44мм) размер R", "clock1"),
+                               ("Кожаный чехол Incase Flat для MacBook Pro 16 дюймов, золото", "caseBrown1"),
+                               ("Apple iPhone 14 ProMax in graphite", "Apple iPhone 14 ProMax1")
         ]
         static let seed = "Недавно просмотренные"
         static let searchIcon = "magnifyingglass"
@@ -163,7 +164,7 @@ final class SearchViewController: UIViewController {
             bottomLine.frame = CGRect(x: 0.0,
                                       y: label.bounds.height + 10,
                                       width: label.bounds.width, height: 1.0)
-            bottomLine.backgroundColor = #colorLiteral(red: 0.1526089693, green: 0.164394652, blue: 0.1817740963, alpha: 1)
+            bottomLine.backgroundColor = UIColor.darkGray.cgColor
             label.layer.addSublayer(bottomLine)
             view.addSubview(imageView)
             view.addSubview(label)
