@@ -56,18 +56,18 @@ final class PageViewController: UIPageViewController {
     }
     
     // MARK: - Private Action
-    @objc func pageControlTappedAction(_ sender: UIPageControl) {
+    @objc private func pageControlTappedAction(_ sender: UIPageControl) {
         setViewControllers([pages[sender.currentPage]], direction: .forward, animated: true)
     }
     
-    @objc func goNextPageAction() {
+    @objc private func goNextPageAction() {
         guard let pageControl = view.subviews.first(where: { $0 is UIPageControl }) as? UIPageControl else { return }
         pageControl.currentPage += 1
         goForward()
         setIsHiddenButtons(pageControl.currentPage == pages.count - 1)
     }
     
-    @objc func goOutAction() {
+    @objc private func goOutAction() {
         let viewController = TabBarViewController()
         viewController.modalPresentationStyle = .fullScreen
         present(viewController, animated: true)

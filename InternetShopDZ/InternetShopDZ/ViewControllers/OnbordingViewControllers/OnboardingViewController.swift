@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Экран выбранного контроллера
 final class OnboardingViewController: UIViewController {
     private enum Constants {
         static let fontAvenir = "Avenir Next"
