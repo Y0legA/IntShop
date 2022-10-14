@@ -8,7 +8,10 @@
 import UIKit
 ///
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    
+    private enum Constants {
+        static let key = "didShow"
+    }
+        
     var window: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession,
@@ -16,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = scene as? UIWindowScene else { return }
         window?.windowScene = scene
         let userDefaults = UserDefaults.standard
-        guard userDefaults.object(forKey: "didShow") != nil else {
+        guard userDefaults.object(forKey: Constants.key) != nil else {
             window?.rootViewController = PageViewController()
             window?.makeKeyAndVisible()
             return

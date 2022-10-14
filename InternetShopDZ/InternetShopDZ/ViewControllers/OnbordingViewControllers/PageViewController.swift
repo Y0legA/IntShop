@@ -88,29 +88,10 @@ final class PageViewController: UIPageViewController {
     }
     
     private func configureUIElements() {
-        pageControl.frame = CGRect(x: 0, y: view.bounds.maxY - 40, width: 200, height: 20)
-        pageControl.center.x = view.center.x
-        pageControl.currentPageIndicatorTintColor = .systemBlue
-        pageControl.pageIndicatorTintColor = .systemGray2
-        pageControl.numberOfPages = pages.count
-        pageControl.currentPage = initialPage
-        
-        skipButton.frame = CGRect(x: 50, y: view.bounds.maxY - 40, width: 50, height: 20)
-        skipButton.setTitleColor(.lightGray, for: .normal)
-        skipButton.setTitle(Constants.skip, for: .normal)
-        skipButton.addTarget(self, action: #selector(goOutAction), for: .primaryActionTriggered)
-        
-        nextButton.frame = CGRect(x: 280, y: view.bounds.maxY - 40, width: 50, height: 20)
-        nextButton.setTitleColor(.systemBlue, for: .normal)
-        nextButton.setTitle(Constants.next, for: .normal)
-        nextButton.addTarget(self, action: #selector(goNextPageAction), for: .primaryActionTriggered)
-        
-        getStartedButton.frame = CGRect(x: 0, y: view.bounds.maxY - 40, width: 200, height: 20)
-        getStartedButton.center.x = view.center.x
-        getStartedButton.setTitleColor(.systemBlue, for: .normal)
-        getStartedButton.setTitle(Constants.getStarted, for: .normal)
-        getStartedButton.isHidden = true
-        getStartedButton.addTarget(self, action: #selector(goOutAction), for: .primaryActionTriggered)
+       configurePageControl()
+        configureSkipButton()
+        configureNextButton()
+        configureGetStartedButton()
     }
     
     private func configureView() {
@@ -119,6 +100,38 @@ final class PageViewController: UIPageViewController {
         view.addSubview(nextButton)
         view.addSubview(skipButton)
         view.addSubview(getStartedButton)
+    }
+    
+    private func configurePageControl() {
+        pageControl.frame = CGRect(x: 0, y: view.bounds.maxY - 40, width: 200, height: 20)
+        pageControl.center.x = view.center.x
+        pageControl.currentPageIndicatorTintColor = .systemBlue
+        pageControl.pageIndicatorTintColor = .systemGray2
+        pageControl.numberOfPages = pages.count
+        pageControl.currentPage = initialPage
+    }
+    
+    private func configureSkipButton() {
+        skipButton.frame = CGRect(x: 50, y: view.bounds.maxY - 40, width: 50, height: 20)
+        skipButton.setTitleColor(.lightGray, for: .normal)
+        skipButton.setTitle(Constants.skip, for: .normal)
+        skipButton.addTarget(self, action: #selector(goOutAction), for: .primaryActionTriggered)
+    }
+    
+    private func configureNextButton() {
+        nextButton.frame = CGRect(x: 280, y: view.bounds.maxY - 40, width: 50, height: 20)
+        nextButton.setTitleColor(.systemBlue, for: .normal)
+        nextButton.setTitle(Constants.next, for: .normal)
+        nextButton.addTarget(self, action: #selector(goNextPageAction), for: .primaryActionTriggered)
+    }
+    
+    private func configureGetStartedButton() {
+        getStartedButton.frame = CGRect(x: 0, y: view.bounds.maxY - 40, width: 200, height: 20)
+        getStartedButton.center.x = view.center.x
+        getStartedButton.setTitleColor(.systemBlue, for: .normal)
+        getStartedButton.setTitle(Constants.getStarted, for: .normal)
+        getStartedButton.isHidden = true
+        getStartedButton.addTarget(self, action: #selector(goOutAction), for: .primaryActionTriggered)
     }
     
     private func setIsHiddenButtons(_ isHidden: Bool) {
@@ -177,3 +190,4 @@ extension PageViewController: UIPageViewControllerDelegate {
         setIsHiddenButtons(viewController === pages.last)
     }
 }
+

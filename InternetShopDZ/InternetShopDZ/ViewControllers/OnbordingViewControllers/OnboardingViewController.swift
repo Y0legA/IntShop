@@ -39,16 +39,12 @@ final class OnboardingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UILabel.animate(withDuration: 2) {
-            self.textLabel.alpha = 1
-            self.titleTextLabel.alpha = 1
-        }
+        showText()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        self.textLabel.alpha = 0
-        self.titleTextLabel.alpha = 0
+       hiddenText()
     }
     
     // MARK: - Private Properties
@@ -62,6 +58,18 @@ final class OnboardingViewController: UIViewController {
         view.addSubview(backgroundImageView)
         view.addSubview(titleTextLabel)
         view.addSubview(textLabel)
+    }
+    
+    private func showText() {
+        UILabel.animate(withDuration: 2) {
+            self.textLabel.alpha = 1
+            self.titleTextLabel.alpha = 1
+        }
+    }
+    
+    private func hiddenText() {
+        self.textLabel.alpha = 0
+        self.titleTextLabel.alpha = 0
     }
     
     private func configureElements() {
