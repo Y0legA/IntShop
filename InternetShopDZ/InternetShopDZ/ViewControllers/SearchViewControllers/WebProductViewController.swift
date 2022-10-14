@@ -44,7 +44,7 @@ final class WebProductViewController: UIViewController {
     }()
     
     private lazy var progressView: UIProgressView = {
-       let progressView = UIProgressView()
+        let progressView = UIProgressView()
         progressView.frame = CGRect(x: 0, y: webView.bounds.maxY - 60, width: 180, height: 30)
         progressView.center.x = view.center.x
         progressView.progressTintColor = .systemCyan
@@ -57,22 +57,13 @@ final class WebProductViewController: UIViewController {
     
     // MARK: - Private Properties
     private var currentUrl: URL?
- 
+    private var observation: NSKeyValueObservation?
+    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
-    
-    // MARK: - Public Property
-    override func observeValue(forKeyPath keyPath: String?,
-                               of object: Any?,
-                               change: [NSKeyValueChangeKey: Any]?,
-                               context: UnsafeMutableRawPointer?) {
-           if keyPath == "estimatedProgress" {
-               progressView.progress = Float(webView.estimatedProgress * 2)
-           }
-       }
     
     // MARK: - Private Actions
     @objc private func goBackAction() {
@@ -100,26 +91,14 @@ final class WebProductViewController: UIViewController {
     // MARK: - Private Methods
     private func configureUI() {
         configureView()
-        configureWebView()
         createToolBar()
+        configureWebView()
     }
     
     private func configureView() {
         view.backgroundColor = .systemBackground
         view.addSubview(webView)
         view.addSubview(progressView)
-    }
-    
-    private func configureWebView() {
-        webView.addObserver(self, forKeyPath:
-                        #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
-        webView.navigationDelegate = self
-        guard let stringUrl = Constants.products[productName] else { return }
-        let url = URL(string: stringUrl)
-        currentUrl = url
-        guard let url = url else { return }
-        let request = URLRequest(url: url)
-        webView.load(request)
     }
     
     private func createToolBar() {
@@ -138,10 +117,28 @@ final class WebProductViewController: UIViewController {
         toolBar.barTintColor = .systemBackground
         webView.addSubview(toolBar)
     }
-  
+    
     private func selectActionNavigationItems() {
         backBarItem.isEnabled = webView.canGoBack
         forwardBarItem.isEnabled = webView.canGoForward
+    }
+    
+    private func configureWebView() {
+        webView.navigationDelegate = self
+        guard let stringUrl = Constants.products[productName] else { return }
+        let url = URL(string: stringUrl)
+        currentUrl = url
+        guard let url = url else { return }
+        let request = URLRequest(url: url)
+        webView.load(request)
+        observation = webView.observe(
+            \.estimatedProgress,
+             options: [.new],
+             changeHandler: { [weak self] webView, _ in
+                 guard let self = self else { return }
+                 self.progressView.progress = Float(webView.estimatedProgress * 2)
+                 return
+             })
     }
 }
 

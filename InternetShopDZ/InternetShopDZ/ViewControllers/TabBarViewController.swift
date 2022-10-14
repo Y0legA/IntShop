@@ -61,12 +61,11 @@ final class TabBarViewController: UITabBarController {
 
     // MARK: - Private Methods
     private func setControllers() {
-        viewControllers = [forYouNavigationController, buyViewController,
+        viewControllers = [buyViewController, forYouNavigationController,
                            searchNavigationController, busketViewController]
     }
     
     private func setStyleTabBar() {
-        //tabBar.backgroundColor = .systemBackground
         tabBar.unselectedItemTintColor = .systemGray2
     }
     

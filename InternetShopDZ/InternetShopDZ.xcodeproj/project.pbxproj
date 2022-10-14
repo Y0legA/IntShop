@@ -12,6 +12,8 @@
 		8403DBC228EEBFB500560B85 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403DBC128EEBFB500560B85 /* BasketViewController.swift */; };
 		8421C73528F4967500959E8A /* WebProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421C73428F4967500959E8A /* WebProductViewController.swift */; };
 		84237CE428F3251D008FD52C /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84237CE328F3251D008FD52C /* Product.swift */; };
+		843810F928F71BA700918AA4 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843810F828F71BA700918AA4 /* PageViewController.swift */; };
+		843810FC28F72CAB00918AA4 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843810FB28F72CAB00918AA4 /* OnboardingViewController.swift */; };
 		844F731428EF5DB70013261F /* SelectedProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F731328EF5DB70013261F /* SelectedProductViewController.swift */; };
 		844F731728EF678C0013261F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F731628EF678C0013261F /* TabBarViewController.swift */; };
 		84AD6B6428EEFF6400828DD1 /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD6B6328EEFF6400828DD1 /* ProductInfo.swift */; };
@@ -31,6 +33,8 @@
 		8403DBC128EEBFB500560B85 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		8421C73428F4967500959E8A /* WebProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebProductViewController.swift; sourceTree = "<group>"; };
 		84237CE328F3251D008FD52C /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		843810F828F71BA700918AA4 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		843810FB28F72CAB00918AA4 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		844F731328EF5DB70013261F /* SelectedProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedProductViewController.swift; sourceTree = "<group>"; };
 		844F731628EF678C0013261F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		84AD6B6328EEFF6400828DD1 /* ProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
@@ -60,6 +64,7 @@
 		8403DBBC28EEBEE900560B85 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				843810FA28F72C7A00918AA4 /* OnbordingViewControllers */,
 				844F731628EF678C0013261F /* TabBarViewController.swift */,
 				8403DBBD28EEBF2000560B85 /* BuyViewController.swift */,
 				8403DBBF28EEBF5D00560B85 /* ForYouViewController.swift */,
@@ -67,6 +72,15 @@
 				8403DBC128EEBFB500560B85 /* BasketViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		843810FA28F72C7A00918AA4 /* OnbordingViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				843810F828F71BA700918AA4 /* PageViewController.swift */,
+				843810FB28F72CAB00918AA4 /* OnboardingViewController.swift */,
+			);
+			path = OnbordingViewControllers;
 			sourceTree = "<group>";
 		};
 		844F731528EF5DC70013261F /* SearchViewControllers */ = {
@@ -229,10 +243,12 @@
 				8421C73528F4967500959E8A /* WebProductViewController.swift in Sources */,
 				8403DBBE28EEBF2000560B85 /* BuyViewController.swift in Sources */,
 				844F731428EF5DB70013261F /* SelectedProductViewController.swift in Sources */,
+				843810FC28F72CAB00918AA4 /* OnboardingViewController.swift in Sources */,
 				84E196BA28EDF21100EC158F /* AppDelegate.swift in Sources */,
 				8403DBC028EEBF5D00560B85 /* ForYouViewController.swift in Sources */,
 				84237CE428F3251D008FD52C /* Product.swift in Sources */,
 				84E196BC28EDF21100EC158F /* SceneDelegate.swift in Sources */,
+				843810F928F71BA700918AA4 /* PageViewController.swift in Sources */,
 				844F731728EF678C0013261F /* TabBarViewController.swift in Sources */,
 				84AF895128F4A7C800DA5D64 /* DetailsViewController.swift in Sources */,
 			);
